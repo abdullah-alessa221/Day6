@@ -41,15 +41,17 @@ public class Main {
 
         Solution:
 
+
         int length;
         int sum = 0;
-        int grater_average = Integer.MIN_VALUE;
+
 
         System.out.println("\nEnter how many numbers you want to enter: ");
         length = input.nextInt();
 
         int [] numbers = new int[length];
         double average = 0 ;
+
 
         for(int i=0; i<=length-1;i++){
             System.out.println("Enter a number: ");
@@ -58,13 +60,15 @@ public class Main {
 
             average = (double) sum/length;
 
-            if(numbers[i] > average){
-                grater_average = numbers[i];
-            }
         }
 
+
         System.out.println("The average of numbers array is: "+average);
-        System.out.println(grater_average+" grater than average");
+        for(int num : numbers){
+            if(num > average){
+                System.out.println(num+ " ");
+            }
+        }
 
 
     3.Write a Java program to get the larger value between first and last
@@ -76,35 +80,46 @@ public class Main {
 
     Solution:
 
-            int number;
-            int largest = 0;
-            int index = 0;
-            String choice;
+        int number;
+        int index = 0;
+        String choice;
 
-            ArrayList<Integer> numbers = new ArrayList<>();
+        ArrayList<Integer> numbers = new ArrayList<>();
 
-            while (true) {
-                System.out.println("\nDo you want to enter a number? Y/N ");
-                choice = input.next();
+        while (true) {
+            System.out.println("\nDo you want to enter a number? Y/N ");
+            choice = input.next();
 
-                if (choice.equalsIgnoreCase("N")||choice.equalsIgnoreCase("NO")) {
-                    break;
-                }else if (choice.equalsIgnoreCase("Y")||choice.equalsIgnoreCase("YES")) {
-                    System.out.println("Please, enter a number");
-                    number = input.nextInt();
-                    numbers.add(index,number);
-                    index++;
-                    if (number > largest) {
-                        largest = number;
-                    }
+            if (choice.equalsIgnoreCase("N")||choice.equalsIgnoreCase("NO")) {
 
-                    }else{
-                    System.out.println("Invalid input");
-                }
-                }
+                break;
+            }else if (choice.equalsIgnoreCase("Y")||choice.equalsIgnoreCase("YES")) {
+                System.out.println("Please, enter a number");
+                number = input.nextInt();
+                numbers.add(index,number);
+                index++;
 
-                System.out.println(numbers);
-                System.out.println("The largest number is " + largest);
+            }else{
+                System.out.println("Invalid input");
+            }
+        }
+
+        System.out.println(numbers);
+
+        if(numbers.isEmpty()){
+            System.out.println("You don't have any numbers");
+        }
+        else if(numbers.size()== numbers.get(0)){
+            System.out.println("The first number and the last number are the same");
+        }else if (numbers.get(0)>numbers.get(numbers.size()-1)){
+            System.out.println("The largest number is: "+numbers.get(0));
+        }else if(numbers.get(0)<numbers.get(numbers.size()-1)){
+            System.out.println("The largest number is: "+numbers.get(numbers.size()-1));
+        }else{
+            System.out.println("Empty Array!");
+        }
+
+
 
     4.Write a Java program to swap the first and last elements of an array and
         create a new array.
@@ -147,7 +162,7 @@ public class Main {
             Sample Output:
             [3,1,5,9,7,2,40,4,10]
     Solution:
-                String choice;
+        String choice;
         int number;
         int index = 0;
         int num = 0;
